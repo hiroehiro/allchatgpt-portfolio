@@ -1,6 +1,23 @@
 // pages/index.tsx
 import { Box, Typography, Button } from "@mui/material";
 import Header from "../components/Header";
+import SkillIcon from "../components/SkillIcon";
+import Grid from "@mui/material/Grid";
+import { faJsSquare, faPython } from "@fortawesome/free-brands-svg-icons";
+
+const skills = [
+  {
+    name: "JavaScript",
+    level: 3,
+    icon: faJsSquare,
+  },
+  {
+    name: "Python",
+    level: 3,
+    icon: faPython,
+  },
+  // 他のスキル
+];
 
 const IndexPage: React.FC = () => {
   return (
@@ -52,9 +69,17 @@ const IndexPage: React.FC = () => {
         <Typography variant="h4" sx={{ mb: 2 }}>
           スキルセット
         </Typography>
-        <Typography>
-          HTML/CSS, JavaScript, TypeScript, React, Next.js, Node.js, MongoDB
-        </Typography>
+        <Grid container spacing={2}>
+          {skills.map((skill, index) => (
+            <Grid item key={index}>
+              <SkillIcon
+                name={skill.name}
+                level={skill.level}
+                icon={skill.icon}
+              />
+            </Grid>
+          ))}
+        </Grid>
       </Box>
       <Box sx={{ m: 2 }}>
         <Typography variant="h4" sx={{ mb: 2 }}>
