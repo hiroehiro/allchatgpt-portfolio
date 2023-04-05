@@ -1,20 +1,20 @@
-// pages/profile.tsx
+// pages/index.tsx
+import Introduction from "../components/Introduction";
+import Skills from "../components/Skills";
+import Career from "../components/Career";
+import Header from "../components/Header";
 
-import React from "react";
-import { profileData } from "../data/profileData";
-
-const ProfilePage: React.FC = () => {
+const IndexPage: React.FC = () => {
   return (
-    <div>
-      <h1>{profileData.name}</h1>
-      <p>{profileData.introduction}</p>
-      <ul>
-        {profileData.skills.map((skill: string, index: number) => (
-          <li key={index}>{skill}</li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <Header />
+      <div>
+        <Introduction />
+        <Skills />
+        <Career />
+      </div>
+    </>
   );
 };
 
-export default ProfilePage;
+export default IndexPage;
